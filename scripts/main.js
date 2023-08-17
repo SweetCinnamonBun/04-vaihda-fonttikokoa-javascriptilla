@@ -1,9 +1,15 @@
 const myListItem = document.querySelectorAll("li");
-const myButton = document.querySelector("button");
+const myButton1 = document.getElementById("font_s");
 const myHeading = document.querySelector("h1");
+const myButton2 = document.getElementById("font_f");
+const myOrderedList = document.querySelector("ol");
+const myFontSize = document.getElementById("font-size");
+const myFontFamily = document.getElementById("font_family");
 let clickAmount = 1;
+let clickAmountFamily = 1;
 
 function changeFontSize() {
+  console.log(myOrderedList.style.fontFamily);
   let fontSizeValue;
   console.log(clickAmount);
   if (clickAmount === 1) {
@@ -18,9 +24,10 @@ function changeFontSize() {
     fontSizeValue = "16px";
   }
 
-  myListItem.forEach((element) => {
-    element.style.fontSize = `${fontSizeValue}`;
-  });
+  //   myListItem.forEach((element) => {
+  //     element.style.fontSize = `${fontSizeValue}`;
+  //   });
+  myOrderedList.style.fontSize = `${fontSizeValue}`;
 
   clickAmount++;
   if (clickAmount > 5) {
@@ -28,14 +35,30 @@ function changeFontSize() {
   }
 }
 
-function myFunction() {
-  alert(document.getElementById("demo").style.fontSize);
+function changeFontFamily() {
+  console.log(clickAmountFamily);
+  if (clickAmountFamily === 1) {
+    myOrderedList.style.fontFamily = "Roboto, sans-serif";
+  } else if (clickAmountFamily === 2) {
+    myOrderedList.style.fontFamily = "Mansalva, cursive";
+  } else if (clickAmountFamily === 3) {
+    myOrderedList.style.fontFamily = "Grenze, serif";
+  } else if (clickAmountFamily === 4) {
+    myOrderedList.style.fontFamily = "Turret Road, serif";
+  } else if (clickAmountFamily === 5) {
+    myOrderedList.style.fontFamily = "Courier New, Courier, monospace";
+  }
+
+  clickAmountFamily++;
+  if (clickAmountFamily > 5) {
+    clickAmountFamily = 1;
+  }
 }
 
-// function changeHeadingFontSize() {
-//     myHeading.style.fontSize
-// }
-
-myButton.addEventListener("click", function () {
+myButton1.addEventListener("click", function () {
   changeFontSize();
+});
+
+myButton2.addEventListener("click", function () {
+  changeFontFamily();
 });
