@@ -55,8 +55,17 @@ function changeFontFamily() {
   }
 }
 
+const x = window.getComputedStyle(myOrderedList).fontSize;
+myFontSize.textContent = `Fonttikoko nyt: ${x}`;
+
+function setFontSize() {
+  const x = window.getComputedStyle(myOrderedList).fontSize;
+  myFontSize.textContent = `Fonttikoko nyt: ${x}`;
+}
+
 myButton1.addEventListener("click", function () {
   changeFontSize();
+  setFontSize();
 });
 
 myButton2.addEventListener("click", function () {
