@@ -4,7 +4,7 @@ const myHeading = document.querySelector("h1");
 const myButton2 = document.getElementById("font_f");
 const myOrderedList = document.querySelector("ol");
 const myFontSize = document.getElementById("font-size");
-const myFontFamily = document.getElementById("font_family");
+const myFontFamily = document.getElementById("font-family");
 let clickAmount = 1;
 let clickAmountFamily = 1;
 
@@ -24,9 +24,6 @@ function changeFontSize() {
     fontSizeValue = "16px";
   }
 
-  //   myListItem.forEach((element) => {
-  //     element.style.fontSize = `${fontSizeValue}`;
-  //   });
   myOrderedList.style.fontSize = `${fontSizeValue}`;
 
   clickAmount++;
@@ -58,6 +55,14 @@ function changeFontFamily() {
 const x = window.getComputedStyle(myOrderedList).fontSize;
 myFontSize.textContent = `Fonttikoko nyt: ${x}`;
 
+const fontti = window.getComputedStyle(myOrderedList).fontFamily;
+myFontFamily.textContent = `Fontti on nyt: ${fontti}`;
+
+function setFontFamily() {
+  const fontti = window.getComputedStyle(myOrderedList).fontFamily;
+  myFontFamily.textContent = `Fontti on nyt: ${fontti}`;
+}
+
 function setFontSize() {
   const x = window.getComputedStyle(myOrderedList).fontSize;
   myFontSize.textContent = `Fonttikoko nyt: ${x}`;
@@ -70,4 +75,5 @@ myButton1.addEventListener("click", function () {
 
 myButton2.addEventListener("click", function () {
   changeFontFamily();
+  setFontFamily();
 });
