@@ -56,11 +56,13 @@ const x = window.getComputedStyle(myOrderedList).fontSize;
 myFontSize.textContent = `Fonttikoko nyt: ${x}`;
 
 const fontti = window.getComputedStyle(myOrderedList).fontFamily;
-myFontFamily.textContent = `Fontti on nyt: ${fontti}`;
+const fonttiArray = fontti.split(",");
+myFontFamily.textContent = `Fontti on nyt: ${fonttiArray[0]}`;
 
 function setFontFamily() {
   const fontti = window.getComputedStyle(myOrderedList).fontFamily;
-  myFontFamily.textContent = `Fontti on nyt: ${fontti}`;
+  const splitArray = fontti.split(",");
+  myFontFamily.textContent = `Fontti on nyt: ${splitArray[0]}`;
 }
 
 function setFontSize() {
